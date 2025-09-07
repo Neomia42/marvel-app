@@ -75,7 +75,7 @@ const Home = ({ searchTerm = "", onPageChange, onTotalPagesChange }) => {
         setIsLoading(true);
         setError(null);
 
-        const response = await axios.get(`${API_URL}/characters/`);
+        const response = await axios.get(`${API_URL}/characters`);
         setData(response.data || []);
         setFilteredData(response.data || []);
         setTotalCount(response.data?.count || 0);
