@@ -1,0 +1,103 @@
+.app-header {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 1280px;
+  z-index: 1000;
+  background: var(--bg-dark-blue);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  height: 110px;
+  padding: 0 16px;
+  box-sizing: border-box;
+}
+.app-header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%; /* Assurez-vous que le fond couvre toute la largeur */
+  height: 100%;
+  background-image: linear-gradient(
+      to right,
+      var(--border-color) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, var(--border-color) 1px, transparent 1px);
+  background-size: 40px 40px;
+  opacity: 0.1;
+  z-index: -1;
+}
+.top-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  margin-top: 10px;
+  width: 1280px;
+}
+.bloc-img {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+.bloc-img img {
+  width: 70px;
+  height: 22px;
+}
+.app-header-title {
+  font-family: "Roboto Mono", monospace;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+.app-header-nav {
+  display: flex;
+  align-items: center;
+  font-family: "Roboto Mono", monospace;
+  font-size: 0.875rem;
+}
+.app-header-nav a {
+  margin: 0 0.75rem;
+  transition: color 0.2s;
+  text-decoration: none;
+  color: var(--text-medium);
+  cursor: pointer;
+}
+.app-header-nav a:hover {
+  color: white;
+}
+
+/* Barre de recherche */
+.search-section {
+  margin-bottom: 2.5rem;
+}
+.search-wrapper {
+  position: relative;
+}
+.search-prompt {
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: "Roboto Mono", monospace;
+}
+.search-input-field {
+  width: 100%;
+  background-color: transparent;
+  color: var(--text-light);
+  border: none;
+  border-bottom: 2px solid var(--border-color);
+  outline: none;
+  padding: 0.75rem 1rem 0.75rem 2rem;
+  font-family: "Roboto Mono", monospace;
+  font-size: 1.125rem;
+  transition: border-color 0.2s;
+  caret-color: var(--accent-cyan);
+}
+.search-input-field:focus {
+  border-color: var(--accent-cyan);
+}
+.search-input-field::placeholder {
+  opacity: 0.5;
+}

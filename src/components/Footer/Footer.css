@@ -1,0 +1,121 @@
+footer {
+  color: var(--text-light, #ffffff);
+  padding: 32px 32px 0;
+  border-top: 1px solid var(--border-color, #333);
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 32px;
+  margin-bottom: 14px;
+}
+
+.footer-section h4 {
+  color: var(--accent-cyan, #00d4ff);
+  margin-bottom: 1rem;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.footer-section p {
+  line-height: 1.4;
+  margin-bottom: 12px;
+  color: var(--text-medium, #cccccc);
+  padding: 0 15px 0 0;
+}
+.developed-with {
+  padding: 0 80px 0 0 !important;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 8px;
+}
+
+.footer-section a {
+  color: var(--accent-cyan-50, #66e0ff);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-section a:hover {
+  color: var(--accent-cyan, #00d4ff);
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 14px;
+  border-top: 1px solid var(--border-color, #333);
+  text-align: center;
+}
+
+.footer-bottom p {
+  margin: 0.5rem 0;
+  font-size: 0.875rem;
+  color: var(--text-medium, #999);
+}
+
+.disclaimer {
+  font-size: 0.75rem !important;
+  color: var(--text-light, #666) !important;
+}
+
+@media (max-width: 768px) {
+  footer {
+    padding: 2rem 1rem 1rem;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+@media (max-width: 480px) {
+  .footer-section h4 {
+    font-size: 1rem;
+  }
+
+  .footer-section p,
+  .footer-section ul li {
+    font-size: 0.875rem;
+  }
+}
+@media (max-width: 360px) {
+  .footer-section h4 {
+    font-size: 0.9rem;
+  }
+
+  .footer-section p,
+  .footer-section ul li {
+    font-size: 0.8rem;
+  }
+}
+@media (max-width: 320px) {
+  .footer-section h4 {
+    font-size: 0.8rem;
+  }
+
+  .footer-section p,
+  .footer-section ul li {
+    font-size: 0.75rem;
+  }
+}
+@media (max-width: 280px) {
+  .footer-section h4 {
+    font-size: 0.7rem;
+  }
+
+  .footer-section p,
+  .footer-section ul li {
+    font-size: 0.7rem;
+  }
+}
