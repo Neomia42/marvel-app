@@ -67,7 +67,28 @@ const Home = ({ searchTerm = "", onPageChange, onTotalPagesChange }) => {
   const handleTotalPagesChange = (total) => {
     setTotalPages(total);
   };
+  // When previewCharacter changes, check backend if it's already a favorite
+  useEffect(() => {
+    const checkFavorite = async () => {
+      setIsFavorite(false);
+      if (!previewCharacter) return;
+      const userId = localStorage.getItem("userId");
+      if (!userId) return;
+      try {
+        const res = await axios.get(
+          `${API_URL.replace(/\/$/, "")}/favorites/${userId}?type=character`
+        );
+        const favs = res.data || [];
+        const exists = favs.some((f) => f.marvelId === previewCharacter._id);
+        setIsFavorite(Boolean(exists));
+      } catch (err) {
+        // si erreur, on laisse isFavorite à false
+        setIsFavorite(false);
+      }
+    };
 
+    checkFavorite();
+  }, [previewCharacter]);
   // useEffect pour charger les données initiales (seulement une fois)
   useEffect(() => {
     const fetchInitialData = async () => {

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 //Import CSS
 import "./Footer.css";
 
@@ -14,13 +15,13 @@ const Footer = () => {
           <h4>Liens utiles</h4>
           <ul>
             <li>
-              <a href="/characters">Personnages</a>
+              <Link to="/">Personnages</Link>
             </li>
             <li>
-              <a href="/comics">Comics</a>
+              <Link to="/operations">Comics</Link>
             </li>
             <li>
-              <a href="/favorites">Favoris</a>
+              <Link to="/favorites">Watchlist</Link>
             </li>
           </ul>
         </div>

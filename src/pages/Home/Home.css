@@ -45,6 +45,17 @@
   z-index: 10;
   max-width: none !important;
   image-rendering: -webkit-optimize-contrast;
+  /* remove visible borders/outlines coming from other rules or focus */
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+}
+
+.info-card .favorite-icon:focus,
+.favorite-icon:focus {
+  outline: none !important;
+  box-shadow: none !important;
 }
 .info-card-image-wrapper {
   position: relative;
