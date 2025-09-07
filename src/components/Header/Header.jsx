@@ -35,6 +35,7 @@ const Header = ({ isConnected, setIsConnected, onSearch = () => {} }) => {
               className="logout-btn"
               onClick={() => {
                 Cookie.remove("token");
+                localStorage.removeItem("userId");
                 setIsConnected(false);
               }}
             >
