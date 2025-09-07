@@ -43,7 +43,7 @@ const Login = ({ setIsConnected }) => {
             });
             // stocker le token dans un cookie et modifie le state isConnected
 
-            handleToken(response.data.token, setIsConnected);
+            handleToken(response.data.token, setIsConnected, response.data._id);
 
             // rediriger l'utilisateur vers la page d'accueil
             navigate("/");

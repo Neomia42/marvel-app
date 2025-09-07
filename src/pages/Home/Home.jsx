@@ -187,11 +187,15 @@ const Home = ({ searchTerm = "", onPageChange, onTotalPagesChange }) => {
     const userId = localStorage.getItem("userId");
     const marvelId = previewCharacter._id;
     const type = "character";
+    console.log({ userId, marvelId, type }); // ← Ajoute ce log
     axios
       .post(`${API_URL}/favorites`, { userId, marvelId, type })
       .then(() => setIsFavorite(true))
-      .catch(() => {
-        /* optionnel : gérer l'erreur */
+      .catch((err) => {
+        console.error(
+          "Erreur ajout favori:",
+          err.response?.data || err.message
+        );
       });
   };
   return isLoading ? (

@@ -10,12 +10,13 @@ import { FaAngleDoubleRight } from "react-icons/fa";
 import { FaAngleDoubleLeft } from "react-icons/fa";
 // Import image
 import imageSpiderman from "../../assets/img/spiderman.jpg";
-import imageFavoriteBefort from "../../assets/img/logo-claire-favorite.png";
+import imageFavoriteBefore from "../../assets/img/logo-claire-favorite.png";
 import imageFavoriteAfter from "../../assets/img/logo-sombre-favorite.png";
 //import CSS file
 import "./Operations.css";
 const Operations = ({ searchTerm = "", onTotalPagesChange }) => {
   const [isLoading, setIsLoading] = useState(true);
+  const [isFavorite, setIsFavorite] = useState(false);
   const [isSearching, setIsSearching] = useState(false);
   const [isPaginating, setIsPaginating] = useState(false);
   const [error, setError] = useState(null);
@@ -39,7 +40,7 @@ const Operations = ({ searchTerm = "", onTotalPagesChange }) => {
       setIsPaginating(true);
       // console.log(`Chargement page ${page}`);
       const response = await axios.get(`${API_URL}/comics/?page=${page}`);
-      console.log("response page =>", response.data);
+      //   console.log("response page =>", response.data);
       // Mettre à jour les données sans déclencher de rechargement complet
       setData(response.data || []);
       setFilteredData(response.data || []);
@@ -176,6 +177,21 @@ const Operations = ({ searchTerm = "", onTotalPagesChange }) => {
   const handleCardClick = (comics) => {
     setPreviewComics(comics);
   };
+  const handleAddFavorite = () => {
+    const userId = localStorage.getItem("userId");
+    const marvelId = previewComics._id; // ← ici, on utilise previewComics
+    const type = "comic";
+    console.log({ userId, marvelId, type });
+    axios
+      .post(`${API_URL}/favorites`, { userId, marvelId, type })
+      .then(() => setIsFavorite(true))
+      .catch((err) => {
+        console.error(
+          "Erreur ajout favori:",
+          err.response?.data || err.message
+        );
+      });
+  };
   return isLoading ? (
     <div className="loading-screen">
       <div className="loading-spinner">
@@ -213,7 +229,13 @@ const Operations = ({ searchTerm = "", onTotalPagesChange }) => {
               >
                 <FaRegWindowClose /> FERMER L'OPÉRATION
               </button>
-
+              <img
+                src={isFavorite ? imageFavoriteAfter : imageFavoriteBefore}
+                alt={isFavorite ? "Retirer des favoris" : "Ajouter en favori"}
+                className="favorite-icon"
+                onClick={handleAddFavorite}
+                style={{ cursor: "pointer" }}
+              />
               <div className="info-card-image-wrapper scanline-effect">
                 <img
                   src={
@@ -480,7 +502,10 @@ const Operations = ({ searchTerm = "", onTotalPagesChange }) => {
                   <div
                     className="card result-card"
                     key={index}
-                    onClick={() => handleCardClick(comics)}
+                    onClick={(event) => {
+                      handleCardClick(comics);
+                      console.log("comics sélectionné :", comics);
+                    }}
                   >
                     <img
                       src={

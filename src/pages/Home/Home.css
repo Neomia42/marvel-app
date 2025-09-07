@@ -208,14 +208,14 @@
   z-index: 1;
 }
 
-.results-grid::-webkit-scrollbar-thumb {
+.column-container::-webkit-scrollbar-thumb {
   background: var(--bg-light-blue);
 }
 
-.results-grid::-webkit-scrollbar-thumb:hover {
+.column-container::-webkit-scrollbar-thumb:hover {
   background: var(--border-color);
 }
-.results-grid::-webkit-scrollbar-track {
+.column-container::-webkit-scrollbar-track {
   background: var(--accent-cyan-50);
 }
 .result-card {

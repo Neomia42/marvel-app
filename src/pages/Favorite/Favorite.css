@@ -1,0 +1,109 @@
+.btn-reset {
+  color: var(--accent-cyan);
+  text-decoration: none;
+  background: none;
+  border: none;
+  margin-bottom: 10px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.btn-reset svg {
+  font-size: 16px;
+}
+.btn-reset:hover {
+  color: #4dc8ac;
+}
+.card {
+  position: relative;
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 0.25rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+}
+.column-title {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  z-index: 30;
+  padding: 8px 0;
+  position: sticky;
+  top: 0;
+  background: var(--bg-dark-blue);
+}
+.result-card:hover {
+  position: relative;
+  transform: translateY(-2px);
+  border-color: var(--accent-cyan);
+  box-shadow: 0 8px 25px rgba(100, 255, 218, 0.3);
+  z-index: 999;
+}
+.result-card > *:not(:last-child) {
+  margin-right: 16px;
+}
+.result-avatar {
+  flex-shrink: 0;
+  width: 80px;
+  height: 100px;
+  border-radius: 10%;
+  object-fit: cover;
+  border: 2px solid var(--border-color);
+}
+.card {
+  background-color: var(--bg-light-blue);
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  transition: all 0.3s ease-in-out;
+}
+.card:hover {
+  transform: translateY(-5px);
+  border-color: var(--accent-cyan);
+  box-shadow: 0 0 15px rgba(100, 255, 218, 0.2);
+  z-index: 100;
+}
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  align-items: stretch;
+  max-height: 830px;
+  overflow-y: auto;
+  overflow-x: visible;
+  padding: 10px 15px 10px 15px;
+  position: relative;
+  z-index: 1;
+}
+
+.results-grid::-webkit-scrollbar-thumb {
+  background: var(--bg-light-blue);
+}
+
+.results-grid::-webkit-scrollbar-thumb:hover {
+  background: var(--border-color);
+}
+.results-grid::-webkit-scrollbar-track {
+  background: var(--accent-cyan-50);
+}
+.column-container {
+  flex: 1;
+  max-height: 60vh;
+  overflow-y: auto;
+  padding-right: 8px;
+}
+.info-card h2 {
+  font-size: 18px;
+  font-weight: 700;
+  padding: 10px 0 20px 0;
+}
+.info-card img {
+  width: 220px;
+  height: auto;
+  border-radius: 10%;
+  border: 2px solid var(--border-color);
+  margin-bottom: 20px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}

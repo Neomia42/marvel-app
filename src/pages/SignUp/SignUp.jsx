@@ -77,7 +77,11 @@ const SignUp = ({ setIsConnected }) => {
                 }
               );
               // stocker le token dans un cookie si il est pas présent
-              handleToken(response.data.token, setIsConnected);
+              hhandleToken(
+                response.data.token,
+                setIsConnected,
+                response.data._id
+              );
               // rediriger l'utilisateur vers la page d'accueil
               navigate("/");
             } catch (error) {
