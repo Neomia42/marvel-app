@@ -267,7 +267,7 @@ const Home = ({ searchTerm = "", onPageChange, onTotalPagesChange }) => {
                 <img
                   src={
                     previewCharacter.thumbnail
-                      ? `${previewCharacter.thumbnail.path}/portrait_fantastic.${previewCharacter.thumbnail.extension}`
+                      ? `${previewCharacter.thumbnail.path}/standard_fantastic.${previewCharacter.thumbnail.extension}`
                       : "https://placehold.co/100x100/0A192F/8892B0?text=N/A"
                   }
                   alt="Portrait in Archive"
