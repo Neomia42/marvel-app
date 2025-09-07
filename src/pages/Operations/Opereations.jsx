@@ -51,6 +51,27 @@ const Operations = ({ searchTerm = "", onTotalPagesChange }) => {
       setIsPaginating(false);
     }
   };
+  useEffect(() => {
+    const checkFavorite = async () => {
+      setIsFavorite(false);
+      if (!previewComics) return;
+      const userId = localStorage.getItem("userId");
+      if (!userId) return;
+      try {
+        const res = await axios.get(
+          `${API_URL.replace(/\/$/, "")}/favorites/${userId}?type=comic`
+        );
+        const favs = res.data || [];
+        const exists = favs.some((f) => f.marvelId === previewComics._id);
+        setIsFavorite(Boolean(exists));
+      } catch (err) {
+        // si erreur, on laisse isFavorite à false
+        setIsFavorite(false);
+      }
+    };
+
+    checkFavorite();
+  }, [previewComics]);
 
   // useEffect pour charger les données initiales (seulement une fois)
   useEffect(() => {

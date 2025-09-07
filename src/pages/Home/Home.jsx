@@ -67,7 +67,7 @@ const Home = ({ searchTerm = "", onPageChange, onTotalPagesChange }) => {
   const handleTotalPagesChange = (total) => {
     setTotalPages(total);
   };
-  // When previewCharacter changes, check backend if it's already a favorite
+
   useEffect(() => {
     const checkFavorite = async () => {
       setIsFavorite(false);
