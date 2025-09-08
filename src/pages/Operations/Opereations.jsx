@@ -269,7 +269,7 @@ const Operations = ({ searchTerm = "", onTotalPagesChange }) => {
                 />
               </div>
 
-              <h2>Opération: {previewComics.name}</h2>
+              <h2>Opération: {previewComics.title}</h2>
               <p className="character-id accent-text">
                 ID:{" "}
                 {previewComics._id
@@ -282,7 +282,7 @@ const Operations = ({ searchTerm = "", onTotalPagesChange }) => {
 
               <div className="details-section">
                 <div className="archives-section">
-                  <p className="details-title">// RAPPORT NAME</p>
+                  <p className="details-title">// RAPPORT</p>
                   <p>
                     {previewComics.description
                       ? previewComics.description
